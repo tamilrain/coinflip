@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Coin Flip</title>
+<style type="text/css">
+body {
+  font-family: "Futura", monospace;
+  font-size: 5em;
+  background-cover: #000;
+  margin: 0px;
+  overflow-y: hidden;
+  background-image: url(http://i.giphy.com/a8TIlyVS7JixO.gif);
+  background-size: cover;
+}
+
+#coin {
+  display: none;
+  height: 100%;
+  padding-top: 100px;
+}
+
+#coin h1 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="coin">
+<h1>&nbsp;</h1>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script>
+ $(document).ready( function(){
+   coinflip();
+   $("#coin").click( function() {
+     coinflip();
+   });
+ });
+ 
+
+ function coinflip() {
+  $("#coin").fadeOut();
+  $("#coin").promise().done(function(){
+    var i = Math.round(Math.random());
+     if(i == 0){
+      $("#coin h1").text("HEADS").css("color","#e0e300");
+      $("#coin").css("background","#ff598f");
+     } else {
+      $("#coin h1").text("TAILS").css("color","#fd8a5e");
+      $("#coin").css("background","#01dddd");
+     }
+     $("#coin").fadeIn();
+  });
+  }
+
+</script>
+</body>
+</html>
+
+    
